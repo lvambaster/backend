@@ -4,8 +4,8 @@ import { DeletePaymentService } from "../../services/payment/DeletePaymentServic
 
 class DeletePaymentController {
   async handle(req: Request, res: Response) {
-    const id = req.params.id;
-    
+    const id = req.query.id as string;
+
     try {
       const service = new DeletePaymentService();
       const deletedPayment = await service.execute({ paymentId: Number(id) });
