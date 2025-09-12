@@ -9,6 +9,8 @@ import { AuthController } from './controllers/payment/AuthController';
 import { ListBikersController } from './controllers/bikers/ListBikersController';
 import { ListPaymentsController } from './controllers/payment/ListPaymentController';
 
+import { DeletePaymentController } from './controllers/payment/DeletePaymentController';
+
 import { isAuthenticated } from './middleware/isAuthenticated';
 
 
@@ -36,5 +38,9 @@ router.get('/payments/:id', new DetailPaymentController().handle);
 router.get('/payments', isAuthenticated, new ListPaymentsController().handle);
 
 router.post('/login', new AuthController().handle);
+
+router.delete('/payment/:id', isAuthenticated, new DeletePaymentController().handle);
+
+
 
 export { router }; 
