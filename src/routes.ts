@@ -39,7 +39,8 @@ router.get('/payments', isAuthenticated, new ListPaymentsController().handle);
 
 router.post('/login', new AuthController().handle);
 
-router.delete('/payment/remove', isAuthenticated, new DeletePaymentController().handle);
+router.delete('/payment/:id', new DeletePaymentController().handle);
+
 
 
 
